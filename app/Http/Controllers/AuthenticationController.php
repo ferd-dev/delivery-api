@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Business\AbilitiesResolver;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,9 @@ class AuthenticationController extends Controller
             ->first();
 
         if ($user && Hash::check(request('password'), $user->password)) {
-            $token = $user->createToken('login');
+            $abilities = AbilitiesResolver::resolve($user, request('device'));
+
+            $token = $user->createToken('login', $abilities);
             return [
                 'token' => $token->plainTextToken,
             ];
