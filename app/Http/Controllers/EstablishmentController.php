@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Establishment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EstablishmentController extends Controller
 {
@@ -16,5 +17,10 @@ class EstablishmentController extends Controller
                 $query->orderBy('starts', 'DESC');
             })
             ->paginate(10);
+    }
+
+    public function show(Establishment $establishment)
+    {
+        return $establishment;
     }
 }
