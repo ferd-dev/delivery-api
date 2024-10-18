@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::middleware(('auth:sanctum'))->group(function () {
+
+    Route::get('/establisments', [EstablishmentController::class, 'index']);
+
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
