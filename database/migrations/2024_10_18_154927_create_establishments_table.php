@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('logo');
             $table->string('category');
-            $table->integer('starts');
+            $table->integer('stars');
             $table->timestamps();
         });
     }

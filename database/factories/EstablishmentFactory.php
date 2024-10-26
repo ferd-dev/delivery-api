@@ -17,7 +17,7 @@ class EstablishmentFactory extends Factory
             'email' => $this->faker->safeEmail,
             'logo' => 'logos/' . Str::random() . '.png',
             'category' => Arr::random(['restaurant', 'bar']),
-            'starts' => rand(100, 999),
+            'stars' => rand(100, 999),
         ];
     }
 }
