@@ -22,6 +22,7 @@ class EstablishmentResource extends JsonResource
             'logo' => $this->logo,
             'stars' => $this->stars,
             'category' => $this->category,
+            'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }
