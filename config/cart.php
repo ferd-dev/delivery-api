@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'tax' => 21,
+    'tax' => 19,
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
 
     'database' => [
 
-        'connection' => null,
+        'connection' => 'mysql',
 
         'table' => 'shoppingcart',
 
@@ -68,9 +68,9 @@ return [
 
     'format' => [
 
-        'decimals' => 2,
+        'decimals' => 0,
 
-        'decimal_point' => '.',
+        'decimal_point' => '',
 
         'thousand_separator' => ',',
 
