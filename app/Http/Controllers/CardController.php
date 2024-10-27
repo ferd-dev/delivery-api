@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
+    public function index()
+    {
+        Cart::restore(Auth::user()->email);
+        Cart::store(Auth::user()->email);
+
+        return Cart::content();
+    }
+
     public function store(Product $product)
     {
         Cart::restore(Auth::user()->email);
