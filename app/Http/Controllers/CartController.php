@@ -19,6 +19,10 @@ class CartController extends Controller
 
     public function store(Product $product)
     {
+        request()->validate([
+            'qty' => 'required|integer|min:1',
+        ]);
+
         Cart::restore(Auth::user()->email);
 
         Cart::add([
@@ -36,6 +40,10 @@ class CartController extends Controller
 
     public function update($rowId)
     {
+        request()->validate([
+            'qty' => 'required|integer|min:1',
+        ]);
+
         Cart::restore(Auth::user()->email);
 
         Cart::update($rowId, [
