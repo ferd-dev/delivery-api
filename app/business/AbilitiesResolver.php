@@ -22,7 +22,8 @@ class AbilitiesResolver
             default => [
                 'establishment:show',
                 'product:show',
-                'orders:create'
+                'orders:create',
+                'cart:manage',
             ],
         };
     }
