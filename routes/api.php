@@ -16,8 +16,8 @@ Route::middleware(('auth:sanctum'))->group(function () {
 
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products:show');
 
-    Route::get('/card', [CartController::class, 'index']);
-    Route::post('/card/add-product/{product}', [CartController::class, 'store']);
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/add-product/{product}', [CartController::class, 'store']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
