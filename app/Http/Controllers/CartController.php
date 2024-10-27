@@ -7,7 +7,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CardController extends Controller
+class CartController extends Controller
 {
     public function index()
     {
