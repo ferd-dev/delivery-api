@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\EstablishmentController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ Route::middleware(('auth:sanctum'))->group(function () {
     Route::get('/establisments/{establishment}', [EstablishmentController::class, 'show']);
 
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products:show');
+
+    Route::post('/card/add-product/{product}', [CardController::class, 'store']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
