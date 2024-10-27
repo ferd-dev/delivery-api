@@ -33,4 +33,19 @@ class CartController extends Controller
 
         return Cart::content();
     }
+
+    public function update($rowId)
+    {
+        Cart::restore(Auth::user()->email);
+
+        Cart::update($rowId, [
+            'qty' => request('qty'),
+        ]);
+
+        Cart::update($rowId, request('qty'));
+
+        Cart::store(Auth::user()->email);
+
+        return Cart::content();
+    }
 }
