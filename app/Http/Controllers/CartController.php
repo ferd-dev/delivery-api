@@ -48,4 +48,15 @@ class CartController extends Controller
 
         return Cart::content();
     }
+
+    public function destroy($rowId)
+    {
+        Cart::restore(Auth::user()->email);
+
+        Cart::remove($rowId);
+
+        Cart::store(Auth::user()->email);
+
+        return Cart::content();
+    }
 }
