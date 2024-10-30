@@ -31,6 +31,7 @@ Route::middleware(('auth:sanctum'))->group(function () {
 
     // ? RUOTES FOR DELIVERY //
     Route::put('/availability', [DeliveryAvailabilityController::class, 'update']);
+    Route::put('/coordinates', [DeliveryCoordinateController::class, 'update']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
