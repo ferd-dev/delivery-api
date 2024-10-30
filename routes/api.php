@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DeliveryAvailabilityController;
+use App\Http\Controllers\DeliveryCoordinateController;
 use App\Http\Controllers\EstablishmentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -11,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthenticationController::class, 'login']);
 
 Route::middleware(('auth:sanctum'))->group(function () {
+
+    // ? RUTAS FOR CLIENT //
 
     Route::get('/establisments', [EstablishmentController::class, 'index']);
     Route::get('/establisments/{establishment}', [EstablishmentController::class, 'show']);
@@ -24,6 +28,10 @@ Route::middleware(('auth:sanctum'))->group(function () {
 
     Route::get('/orders', [OrderController::class, 'index']);
     Route::post('/orders', [OrderController::class, 'store']);
+
+    // ? RUOTES FOR DELIVERY //
+    Route::put('/availability', [DeliveryAvailabilityController::class, 'update']);
+    Route::put('/coordinates', [DeliveryCoordinateController::class, 'update']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
